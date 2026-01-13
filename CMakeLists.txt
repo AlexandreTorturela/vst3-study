@@ -14,3 +14,10 @@ message(STATUS "Project: ${PROJECT_NAME}")
 message(STATUS "Version: ${PROJECT_VERSION}")
 message(STATUS "System: ${CMAKE_SYSTEM_NAME}")
 message(STATUS "Processor: ${CMAKE_SYSTEM_PROCESSOR}")
+
+add_executable(hello_win src/hello.cpp)
+
+target_link_options(hello_win PRIVATE
+    -static-libstdc++
+    -static-libgcc
+)
