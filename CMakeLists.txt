@@ -32,6 +32,14 @@ set(SMTG_ENABLE_VST3_SAMPLES OFF CACHE BOOL "" FORCE)
 set(SMTG_ENABLE_VST3_HOSTING_EXAMPLES OFF CACHE BOOL "" FORCE)
 set(SMTG_ENABLE_VST3_PLUGIN_EXAMPLES OFF CACHE BOOL "" FORCE)
 
+# ------------------------------------------------------------
+# VST3 SDK - disable install & validation (cross-compile safe)
+# ------------------------------------------------------------
+set(SMTG_VST3_INSTALL_PATH "" CACHE PATH "" FORCE)
+set(SMTG_RUN_VST3_VALIDATOR OFF CACHE BOOL "" FORCE)
+set(SMTG_RUN_VST3_PLUGIN_TESTS OFF CACHE BOOL "" FORCE)
+
+
 # Add VST3 SDK
 add_subdirectory(${VST3_SDK_PATH} external/vst3sdk-build)
 
@@ -47,3 +55,6 @@ target_link_options(hello_win PRIVATE
     -static-libstdc++
     -static-libgcc
 )
+
+# Add plugin subdirectory
+add_subdirectory(plugin)
